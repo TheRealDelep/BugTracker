@@ -9,13 +9,16 @@ namespace BugTracker.Services.Identity.DAL
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public override string UserName => $"{FirstName} {LastName}";
+
         public UserRole Role { get; set; }
+
         public User() : base()
         {
         }
 
-        public User(string userName) : base(userName)
-        {
-        }
+        //public User(string userName) : base(userName)
+        //{
+        //}
     }
 }

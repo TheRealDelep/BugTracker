@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.DAL", "BugTracke
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.UI", "BugTracker.UI\BugTracker.UI.csproj", "{904DD826-5854-4F3D-9C4D-34727885ABFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.DAL", "Identity.DAL\Identity.DAL.csproj", "{D6747235-AA7A-4B27-AC37-35E94BD4F5E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.DAL", "Identity.DAL\Identity.DAL.csproj", "{D6747235-AA7A-4B27-AC37-35E94BD4F5E5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{00EE946D-8917-4D3E-A323-E3A76C336EDC}"
 EndProject
@@ -15,7 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{E9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BugTracker", "BugTracker", "{0480C2C9-2A67-4905-92AB-4F60B486604D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.Cross_Cutting", "BugTracker.Cross_Cutting\BugTracker.Cross_Cutting.csproj", "{84C2D0FF-3160-4E24-ABBB-2F65F3014A36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.Cross_Cutting", "BugTracker.Cross_Cutting\BugTracker.Cross_Cutting.csproj", "{84C2D0FF-3160-4E24-ABBB-2F65F3014A36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.BLL", "BugTracker.BLL\BugTracker.BLL.csproj", "{B8E6FDAD-2130-4325-8757-1355C4AD6E26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.DAL.Tests", "BugTracker.DAL.Tests\BugTracker.DAL.Tests.csproj", "{A0D2CDA0-8884-4E9A-BB56-9AAD4613CF9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{84C2D0FF-3160-4E24-ABBB-2F65F3014A36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84C2D0FF-3160-4E24-ABBB-2F65F3014A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84C2D0FF-3160-4E24-ABBB-2F65F3014A36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E6FDAD-2130-4325-8757-1355C4AD6E26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E6FDAD-2130-4325-8757-1355C4AD6E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E6FDAD-2130-4325-8757-1355C4AD6E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E6FDAD-2130-4325-8757-1355C4AD6E26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0D2CDA0-8884-4E9A-BB56-9AAD4613CF9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0D2CDA0-8884-4E9A-BB56-9AAD4613CF9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0D2CDA0-8884-4E9A-BB56-9AAD4613CF9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0D2CDA0-8884-4E9A-BB56-9AAD4613CF9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +60,8 @@ Global
 		{D6747235-AA7A-4B27-AC37-35E94BD4F5E5} = {E9EF0886-290E-4FB0-9116-3681415FC8A2}
 		{E9EF0886-290E-4FB0-9116-3681415FC8A2} = {00EE946D-8917-4D3E-A323-E3A76C336EDC}
 		{0480C2C9-2A67-4905-92AB-4F60B486604D} = {00EE946D-8917-4D3E-A323-E3A76C336EDC}
+		{B8E6FDAD-2130-4325-8757-1355C4AD6E26} = {0480C2C9-2A67-4905-92AB-4F60B486604D}
+		{A0D2CDA0-8884-4E9A-BB56-9AAD4613CF9A} = {0480C2C9-2A67-4905-92AB-4F60B486604D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D15BAEF-5050-4F71-B819-EAF3DD2F2DF6}

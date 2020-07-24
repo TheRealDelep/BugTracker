@@ -44,6 +44,19 @@ namespace BugTracker.UI
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequiredUniqueChars = 0;
 
+                string allowedChars = "";
+
+                for (int i = 0; i < 256; i++)
+                {
+                    char c = (char)i;
+                    if (char.IsLetter(c) || char.IsWhiteSpace(c))
+                    {
+                        allowedChars += c;
+                    }
+                }
+
+                options.User.AllowedUserNameCharacters = allowedChars;
+
                 options.SignIn.RequireConfirmedEmail = false;
             })
                 .AddDefaultUI()
