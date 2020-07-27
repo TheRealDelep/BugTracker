@@ -14,6 +14,10 @@ using Microsoft.Extensions.Hosting;
 using BugTracker.Services.Identity.DAL;
 using User = BugTracker.Services.Identity.DAL.User;
 
+using BugTracker.BLL;
+using BugTracker.Cross_Cutting.Interfaces;
+using BugTracker.DAL.Repositories;
+
 namespace BugTracker.UI
 {
     public class Startup
@@ -30,7 +34,10 @@ namespace BugTracker.UI
         {
             services.AddDbContext<IdentityContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("IdentityConnection")));
+
+            services.AddSingleton<IBugTrackerContext>(new BugTrackerContext(Configuration.GetConnectionString("BTConnection")));
+            services.AddScoped<IBTService, BTService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

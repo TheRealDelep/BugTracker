@@ -17,7 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BugTracker.BLL\BugTracker.BLL.csproj" />
     <ProjectReference Include="..\BugTracker.Cross_Cutting\BugTracker.Cross_Cutting.csproj" />
+    <ProjectReference Include="..\BugTracker.DAL\BugTracker.DAL.csproj" />
     <ProjectReference Include="..\Identity.DAL\Identity.DAL.csproj" />
   </ItemGroup>
 

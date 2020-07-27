@@ -9,23 +9,35 @@ namespace BugTracker.DAL.Tests
     public class UserRepoTests
     {
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BugTracker.ServiceTests;Integrated Security=True;";
+        private SqlConnection connection;
+        private SqlTransaction transaction;
         private UserRepository userRepo;
 
         [SetUp]
         public void Setup()
         {
-            if (userRepo is null) userRepo = new UserRepository(connectionString);
+            connection = new SqlConnection(connectionString);
+            connection.Open();
+            transaction = connection.BeginTransaction("transaction");
+            userRepo = new UserRepository(connection, transaction);
+        }
 
-            using (var connection = new SqlConnection(connectionString))
+        [TearDown]
+        public void CleanUp()
+        {
+            transaction.Commit();
+            connection.Close();
+        }
+
+        public void ResetDatabase()
+        {
+            using (var command = connection.CreateCommand())
             {
-                using (var command = connection.CreateCommand())
-                {
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.CommandText = "initialize";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "reset_db";
+                command.Transaction = transaction;
 
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
+                command.ExecuteNonQuery();
             }
         }
 
@@ -35,6 +47,7 @@ namespace BugTracker.DAL.Tests
         public void Should_return_IdentityId1_For_UserId1()
         {
             User user = userRepo.GetById(1);
+
             Assert.AreEqual(1, user.IdentityId);
         }
 
@@ -89,6 +102,7 @@ namespace BugTracker.DAL.Tests
         {
             var user = new User { IdentityId = 4 };
             Assert.AreEqual(4, userRepo.Insert(user).Id);
+            ResetDatabase();
         }
 
         #endregion Insert
