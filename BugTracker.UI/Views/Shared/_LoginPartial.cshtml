@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<BugTracker.Services.BugTracker.DAL.Models.User> SignInManager
-@inject UserManager<BugTracker.Services.BugTracker.DAL.Models.User> UserManager
+@inject SignInManager<BugTracker.Services.Identity.DAL.User> SignInManager
+@inject UserManager<BugTracker.Services.Identity.DAL.User> UserManager
 
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))

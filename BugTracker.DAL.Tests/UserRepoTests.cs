@@ -25,7 +25,6 @@ namespace BugTracker.DAL.Tests
         [TearDown]
         public void CleanUp()
         {
-            transaction.Commit();
             connection.Close();
         }
 
@@ -81,6 +80,7 @@ namespace BugTracker.DAL.Tests
         {
             var user = new User() { Id = 1, IdentityId = 1 };
             Assert.Throws<ArgumentException>(() => userRepo.Insert(user));
+            transaction.Rollback();
         }
 
         [Test]
@@ -88,6 +88,7 @@ namespace BugTracker.DAL.Tests
         {
             var user = new User() { Id = 0, IdentityId = 0 };
             Assert.Throws<ArgumentException>(() => userRepo.Insert(user));
+            transaction.Rollback();
         }
 
         [Test]
@@ -95,6 +96,7 @@ namespace BugTracker.DAL.Tests
         {
             var user = new User() { Id = 0, IdentityId = 1 };
             Assert.Throws<ArgumentException>(() => userRepo.Insert(user));
+            transaction.Rollback();
         }
 
         [Test]

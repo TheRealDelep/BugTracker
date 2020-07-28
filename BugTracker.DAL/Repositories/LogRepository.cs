@@ -8,35 +8,10 @@ using System.Text;
 
 namespace BugTracker.DAL.Repositories
 {
-    public class LogRepository : ADORepository<Log>
+    public class LogRepository
     {
-        public LogRepository(SqlConnection connection, SqlTransaction transaction) : base(connection, transaction)
-        {
-        }
-
-        public override bool Delete(Log entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override IEnumerable<Log> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Log GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Log Insert(Log entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Log Update(Log entity)
-        {
-            throw new NotImplementedException();
-        }
+        //public LogRepository(SqlConnection connection, SqlTransaction transaction) : base(connection, transaction)
+        //{
+        //}
     }
 }
