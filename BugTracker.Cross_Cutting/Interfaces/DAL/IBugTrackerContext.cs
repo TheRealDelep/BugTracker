@@ -5,8 +5,14 @@ using System.Text;
 
 namespace BugTracker.Cross_Cutting.Interfaces
 {
-    public interface IBugTrackerContext
+    public interface IBTUnitOfWork : IDisposable
     {
         public IRepository<User> Users { get; set; }
+
+        public void Save(string savePointName);
+
+        public void Commit();
+
+        public void RollBack(string savePointName = null);
     }
 }

@@ -8,14 +8,21 @@ namespace BugTracker.BLL
 {
     public class UserCapabilities : IUserCapabilities
     {
-        private IBugTrackerContext context;
+        private IBTUnitOfWork context;
 
-        public UserCapabilities()
+        public UserCapabilities(IBTUnitOfWork unitOfWork)
         {
+            context = unitOfWork;
         }
 
-        public void Register(User user)
+        public User Register(User user)
         {
+            using (context)
+            {
+                var added = context.Users.Insert(user);
+                context.Commit();
+                return added;
+            }
         }
     }
 }

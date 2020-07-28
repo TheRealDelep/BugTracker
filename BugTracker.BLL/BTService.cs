@@ -5,15 +5,15 @@ using System.Text;
 
 namespace BugTracker.BLL
 {
-    public class BTService : IBTService
+    public class BTService
     {
-        private readonly IBugTrackerContext context;
-        public IUserCapabilities User { get; set; }
+        //private readonly IBTUnitOfWork context;
+        //public IUserCapabilities User { get; set; }
 
-        public BTService(IBugTrackerContext context)
-        {
-            this.context = context;
-            User = new UserCapabilities();
-        }
+        //public BTService(IBTUnitOfWork context)
+        //{
+        //    this.context = context;
+        //    User = new UserCapabilities();
+        //}
     }
 }

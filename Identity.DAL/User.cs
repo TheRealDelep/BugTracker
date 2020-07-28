@@ -16,9 +16,5 @@ namespace BugTracker.Services.Identity.DAL
         public User() : base()
         {
         }
-
-        //public User(string userName) : base(userName)
-        //{
-        //}
     }
 }

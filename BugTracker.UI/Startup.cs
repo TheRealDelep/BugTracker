@@ -34,10 +34,12 @@ namespace BugTracker.UI
         {
             services.AddDbContext<IdentityContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("IdentityConnection")));
+                    Configuration.GetConnectionString("IdentityConnection")), ServiceLifetime.Transient);
 
-            services.AddSingleton<IBugTrackerContext>(new BugTrackerContext(Configuration.GetConnectionString("BTConnection")));
-            services.AddScoped<IBTService, BTService>();
+            //services.AddTransient<IBTUnitOfWork>(s => new BTUnitOfWork(Configuration.GetConnectionString("BTConnection")));
+            services.AddTransient<IUserCapabilities>(s =>
+                new UserCapabilities(new BTUnitOfWork(
+                    Configuration.GetConnectionString("BTConnection"))));
 
             services.AddControllersWithViews();
             services.AddRazorPages();
